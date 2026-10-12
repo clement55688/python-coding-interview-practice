@@ -1,0 +1,22 @@
+{
+  "folders": [{ "path": "." }],
+  "settings": {
+    "editor.tabSize": 4,
+    "files.trimTrailingWhitespace": true,
+    "task.saveBeforeRun": "always"
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Run tests for current module",
+        "type": "process",
+        "command": "${env:LOCALAPPDATA}/Programs/Python/Python313/python.exe",
+        "args": ["-m", "unittest", "discover", "-s", "${fileDirname}", "-p", "test_task.py", "-v"],
+        "group": { "kind": "build", "isDefault": true },
+        "problemMatcher": [],
+        "presentation": { "reveal": "always", "panel": "shared" }
+      }
+    ]
+  }
+}
