@@ -1,5 +1,31 @@
 # Python coding interview practice
 
+## One-command practice coach
+
+From this folder, run:
+
+```powershell
+.\practice.cmd today
+```
+
+Useful commands:
+
+```powershell
+.\practice.cmd status
+.\practice.cmd start
+.\practice.cmd start 26
+.\practice.cmd finish --minutes 38 --hints 1 --notes "Missed the left-boundary update"
+.\practice.cmd agent
+```
+
+- `today` recommends the next exercise from your recorded evidence.
+- `start` records the beginning of an attempt.
+- `finish` runs that module's tests and records the real result in the private `.practice-progress.json` file.
+- `status` summarizes completed and pending work.
+- `agent` opens Codex CLI in this project with the coaching rules and progress context. This gives you an interactive agent in the terminal, so the desktop app is optional.
+
+The progress JSON is ignored by Git so personal attempt history is not published. Use `progress.md` only for notes you intentionally want committed.
+
 ## Run your code
 
 Open [the VS Code workspace](python-interview-practice.code-workspace), edit a Python exercise, and press Ctrl+Shift+B. The task saves open files first and runs that module's unit tests.
