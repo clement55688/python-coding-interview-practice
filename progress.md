@@ -2,7 +2,7 @@
 
 Daily availability: 6 hours per day, confirmed by Clement. Language: Python.
 Current baseline: Module 01 was completed with substantial coaching. Module 02's implementation and provided checks pass; elapsed time and independence were not reported.
-Next action: explain Module 02's time and space complexity, then start Module 03 (reservation windows) with a focus on half-open interval boundaries.
+Next action: correct Module 20's grouping direction, then retry Module 26 from a blank editor and explain deque operations without a reference solution.
 
 | Date | Task | Minutes | Hints | Correctness / tests | Main gap | Retry date |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -28,3 +28,10 @@ For each mistake: symptom → root cause → prevention rule → evidence from a
 
 - Return/comprehension: initially returned inside the event loop and had invalid comprehension syntax → indentation and `{key: value for ...}` structure were not yet secure → place final aggregation after the loop and identify key/value/iteration variables before typing → fresh retry pending.
 - Complexity: estimated O(n*k) time and space because every event is visited → mixed input work with retained state → count one-pass dictionary operations separately from the number of distinct keys → fresh retry pending.
+
+## October 12 desktop practice
+
+- Module 20: saved the learner's implementation. All 4 supplied tests pass, but review found the grouping reversed: `(student_id, bench_id)` should add the student to the bench's set. Current code instead counts benches per student. For `[('A', 'X'), ('B', 'X')]`, the required answer is 2 but the implementation returns 1. Correction and a regression test are pending. Elapsed time and hint count were not reported; independence is not assessed.
+- Module 26: all 4 supplied tests pass. Substantial coaching included validation, sliding-window movement, indexes versus values, monotonic deque candidates, front versus back removal, a six-reading dry run, and the complete solution supplied at the learner's request. Reviewed and corrected the learner's float validation and appending values instead of indexes. The learner recognized the sliding-window-plus-two-deques pattern. Elapsed time and exact hint count were not reported; this is not an independent completion.
+- Next practice: independently rebuild Module 26 and explain why back removals discard dominated candidates, front removals discard expired indexes, and total deque operations are O(n). LeetCode 239 was suggested as a one-deque reinforcement exercise; no LeetCode attempt was observed.
+- Environment: added the Mac `practice.sh` launcher and Python 3 workspace test task; automatic completions are disabled while Copilot Chat remains available. Local zsh shortcuts `task20` and `ptest NUMBER` were installed on this computer; they are not part of the repository.

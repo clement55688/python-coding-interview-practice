@@ -2,6 +2,21 @@
   "folders": [{ "path": "." }],
   "settings": {
     "editor.tabSize": 4,
+    "editor.quickSuggestions": false,
+    "editor.suggestOnTriggerCharacters": false,
+    "editor.inlineSuggest.enabled": false,
+    "editor.tabCompletion": "off",
+    "editor.wordBasedSuggestions": "off",
+    "editor.suggest.showSnippets": false,
+    "chat.disableAIFeatures": false,
+    "github.copilot.enable": { "*": false },
+    "[python]": {
+      "editor.quickSuggestions": false,
+      "editor.suggestOnTriggerCharacters": false,
+      "editor.inlineSuggest.enabled": false,
+      "editor.tabCompletion": "off",
+      "editor.wordBasedSuggestions": "off"
+    },
     "files.trimTrailingWhitespace": true,
     "task.saveBeforeRun": "always"
   },
@@ -11,7 +26,11 @@
       {
         "label": "Run tests for current module",
         "type": "process",
-        "command": "${env:LOCALAPPDATA}/Programs/Python/Python313/python.exe",
+        "command": "python3",
+        "windows": {
+          "command": "${env:LOCALAPPDATA}/Programs/Python/Python313/python.exe"
+        },
+        "options": { "cwd": "${workspaceFolder}" },
         "args": ["-m", "unittest", "discover", "-s", "${fileDirname}", "-p", "test_task.py", "-v"],
         "group": { "kind": "build", "isDefault": true },
         "problemMatcher": [],
