@@ -21,5 +21,12 @@ report my attempt or run the tests.
     exit $LASTEXITCODE
 }
 
-& python (Join-Path $ProjectRoot "tools\practice_coach.py") $Command @RemainingArgs
+$KnownPython = Join-Path $env:LOCALAPPDATA "Programs\Python\Python313\python.exe"
+if (Test-Path $KnownPython) {
+    & $KnownPython (Join-Path $ProjectRoot "tools\practice_coach.py") $Command @RemainingArgs
+} elseif (Get-Command py -ErrorAction SilentlyContinue) {
+    & py -3 (Join-Path $ProjectRoot "tools\practice_coach.py") $Command @RemainingArgs
+} else {
+    & python (Join-Path $ProjectRoot "tools\practice_coach.py") $Command @RemainingArgs
+}
 exit $LASTEXITCODE

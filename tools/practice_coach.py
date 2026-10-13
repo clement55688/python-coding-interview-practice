@@ -170,11 +170,25 @@ def command_status(_: argparse.Namespace) -> int:
     return 0
 
 
+def command_test(args: argparse.Namespace) -> int:
+    tasks = task_map()
+    if args.task not in tasks:
+        raise SystemExit(f"Unknown task: {args.task}")
+    return subprocess.run(
+        [sys.executable, "-m", "unittest", module_name(tasks[args.task]), "-v"],
+        cwd=ROOT,
+        check=False,
+    ).returncode
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="practice", description="Choose exercises and track practice evidence.")
     subparsers = parser.add_subparsers(dest="command", required=True)
     subparsers.add_parser("today", help="Show the recommended task").set_defaults(func=command_today)
     subparsers.add_parser("status", help="Show recorded progress").set_defaults(func=command_status)
+    test = subparsers.add_parser("test", help="Run one exercise's tests without recording an attempt")
+    test.add_argument("task", type=int)
+    test.set_defaults(func=command_test)
     start = subparsers.add_parser("start", help="Start a timed attempt")
     start.add_argument("task", nargs="?", type=int)
     start.set_defaults(func=command_start)

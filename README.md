@@ -2,6 +2,33 @@
 
 ## One-command practice coach
 
+### Mac and Windows
+
+Open `python-interview-practice.code-workspace` in VS Code. With an exercise file
+active, run its tests using **Cmd+Shift+B** on Mac or **Ctrl+Shift+B** on Windows.
+The Windows task preserves the Python 3.13 installation path used by this project;
+the Mac task uses `python3`.
+
+From the project root, test a numbered exercise without ending or recording an attempt:
+
+```powershell
+# Windows PowerShell (the launcher finds Python 3.13, py -3, or python):
+.\practice.cmd test 26
+.\practice.cmd today
+.\practice.cmd status
+```
+
+```bash
+# Mac:
+./practice.sh test 26
+./practice.sh today
+./practice.sh status
+```
+
+Replace `26` with any exercise number. The local `ptest` zsh function is a Mac
+terminal convenience; use `practice.cmd test` on Windows. Tests require only
+Python's standard library.
+
 From this folder, run:
 
 ```powershell
