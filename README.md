@@ -23,21 +23,15 @@ From the repository root:
 python3 -m unittest discover -s practice -p "test_task.py" -v
 ```
 
-One exercise (replace the module name as needed):
+A full run reports failures by design. Unfinished starter exercises raise `NotImplementedError`, and modules 05, 11, and 19 are debugging exercises that fail on purpose.
+
+Run one module by name:
 
 ```bash
 python3 -m unittest practice.task_01_latest_status.test_task -v
 ```
 
-The same single-exercise run, without recording an attempt:
-
-```bash
-./practice.sh test 1
-```
-
-On Windows, `practice.cmd` calls `practice.ps1`, which runs `tools/practice_coach.py` with Python 3.13 when that install is present, otherwise `py -3`, otherwise `python`. Example: `.\practice.cmd test 1`. Opening [python-interview-practice.code-workspace](python-interview-practice.code-workspace) and pressing Cmd+Shift+B (macOS) or Ctrl+Shift+B (Windows) runs `test_task.py` for the exercise folder of the active file.
-
-A full discovery run finishes with failures until each starter is implemented. Unfinished starters raise `NotImplementedError`. Modules 05, 11, and 19 are debugging exercises and begin with an incorrect starter.
+`./practice.sh test 1` runs that same module and does not record an attempt. On Windows, `practice.cmd` calls `practice.ps1`, which runs `tools/practice_coach.py` with Python 3.13 when that install is present, otherwise `py -3`, otherwise `python` (`.\practice.cmd test 1`). Opening [python-interview-practice.code-workspace](python-interview-practice.code-workspace) and pressing Cmd+Shift+B (macOS) or Ctrl+Shift+B (Windows) runs `test_task.py` for the exercise folder of the active file.
 
 ## Requirements
 
